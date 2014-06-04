@@ -2,4 +2,4 @@
 A nodejs+socketio client/server demo for a client
 ======================
 
-An attempt to create a NodeJS+SocketIO serve/client for my local client. Project didn't push through due to some reasons.
+A proposal i made for a client using nodejs+socketio. Sadly project halted on it's alpha stage due to client keeps changing mind >_<
