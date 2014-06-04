@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/tuktuk/tuktuk.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/static/tuktuk/tuktuk.theme.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/static/tuktuk/tuktuk.icons.css" type="text/css" media="screen" charset="utf-8">
+
+
+</head>
+<body>
+<header class='bck light margin-bottom'>
+    <h1 class='text center'>Header Placeholder</h1>
+</header>
+<section class='row'>
+    <div id='betArea' class='column_4 text'> 
+    <h6 class='text bold'>UNMATCHED BETS</h6>
+        <table>
+            <thead>
+                <tr>
+                    <th>MERON (L)</th>
+                    <th>ODDS</th>
+                    <th>WALA (D)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>10-10</td>
+                    <td></td>
+                </tr>
+            
+                
+                
+            </tbody>
+            
+        </table>
+        
+        
+        
+    </div>
+
+    <div id='streamArea' class='column_5'>
+    </div>
+    <div id='chatArea' class='column_3'>
+    </div>
+</section>
+<footer class='margin-top'>
+ <div class='text thin center'>
+ Privacy Policy | Disclaimer
+ </div>
+</footer>
+
+
+
+<script src='/static/js/jquery.1.10.2.min.js'></script>
+<script src='/static/tuktuk/tuktuk.js'></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+<script type="text/javascript" charset="utf-8">
+    
+var _url= 'http://120.28.67.89/sabong/sabong.cfc?method=placeBet&betType=BM_L_10_9&betAmount=100';
+
+
+ $(function(){
+  
+         $.getJSON(_url, function (data){ console.log(data);
+             });
+   
+
+ });
+
+</script>
+
+</body>
+</html>

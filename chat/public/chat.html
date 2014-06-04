@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<title>Chat Demo</title>
+<link rel="stylesheet" href="/static/tuktuk/tuktuk.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="/static/tuktuk/tuktuk.theme.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="/static/tuktuk/tuktuk.icons.css" type="text/css" media="screen" charset="utf-8">
+
+<body>
+<header class='bck dark padding color white'>
+   <div class='row'>
+        <h1 class='text align left'>Client Chat Module</h1>
+    </div> 
+</header>
+
+<div class='row margin-bottom padding-top'>
+    <div class='column_6 padding offset_1'>
+        <div id='conversation' style='height:300px;'>
+        
+        </div>
+        <div class='align right'>
+            <form onSubmit='return false;'>
+            <input type='text' id='data'/>    
+            <a class='button' id='datasend'>send</a>
+            </form>
+        </div>
+           
+     </div>
+</div>
+
+<script src="/static/js/jquery.1.10.2.min.js"></script>
+<script src='/static/tuktuk/tuktuk.js'></script>
+<script src='/socket.io/socket.io.js'></script>
+  
+
+
+<script type="text/javascript" charset="utf-8">   
+
+// client chat
+$( function(){
+    var iAm = 'user_' + Math.floor(Math.random()*100) + 1;
+        console.log(iAm);
+
+    var _conn = false;
+   
+    // connect socket
+     var  socket = io.connect('http://localhost:5001');
+      console.log('Initialized socket connection...');
+
+    // TukTuk.Modal.loading();
+
+    socket.on('connect', function(){
+       socket.emit('clientIdentifiedAs',iAm);
+    });
+
+    socket.on('updatechat', function( sender, data, connStatus ){
+        $('#conversation').append('<p><span class="text bold">' + sender + ':</span> ' + data + '</p>');
+        if (connStatus)
+            _conn = connStatus;
+    });
+
+
+    // ui functions
+    $('#datasend').click(function(){
+            console.log('@datasend - _conn ' + _conn);
+        if (!_conn) return; // not connected dont send anything
+        
+        var message =  $('#data').val();
+             
+            $('#data').val(''); // refresh textfield
+            socket.emit('sendchat', message);
+            return false;
+    });
+
+    $('#data').keypress(function (e){
+         if (e.which == 13) {
+            $(this).blur();
+            $('#datasend').focus().click();
+            $(this).focus();
+         }
+    });
+
+ }); // end document.ready
+
+
+
+</script>
+
+  </body>
+</html>

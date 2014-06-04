@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<title>Sabong Online</title>
+
+<link rel="stylesheet" href="/static/vendor/gumby/css/gumby.css" type="text/css" media="screen" charset="utf-8">
+
+<meta name="viewport" content="width:device-width, initial-scale=1.0, maximum-scale=1">
+
+<script src='/static/vendor/gumby/js/libs/modernizr-2.6.2.min.js'></script>
+
+<style type="text/css" media="screen">
+#videoStream {
+    min-height:350px;
+    background-color:#ccc;
+}
+</style>
+
+<body>
+<div class='wrapper shaded'>
+   <div class='row centered' id='inner-nav'>
+    <div class='fourteen columns centered'>
+    <h2>HEADER PLACE HOLDER</h2> 
+    </div>
+     
+   </div>
+</div>
+
+<div class='wrapper nopad'>
+    <div class='row'>
+        <section class='three columns'>
+            <div class='row'>
+                TOTAL BEST: $ 
+            </div>
+            <table class=''>
+              <thead class=''>
+                  <th>Bet Amount</th>
+              </thead>
+              
+            </table>
+            
+        
+        
+        </section>
+
+
+        <section class='six columns' id='videoStream'>
+            video screen
+        </section>
+
+        <section class='three columns'>
+            chat column
+        </section>
+    </div>
+    
+</div>
+
+
+<script src="/static/vendor/jquery/jquery.1.10.2.min.js"></script>
+<script gumby-touch="js/libs" src="/static/gumby/js/libs/gumby.js"></script>
+<script src="/static/vendor/gumby/js/libs/ui/gumby.tabs.js"></script>
+<script src="/static/vendor/gumby/js/libs/ui/gumby.navbar.js"></script>
+<script src="/static/vendor/gumby/js/libs/gumby.init.js"></script>
+
+<script src="/static/vendor/gumby/js/plugins.js"></script>
+<script src="/static/vendor/gumby/js/main.js"></script>
+
+
+<script src='/socket.io/socket.io.js'></script>
+  
+
+
+<script type="text/javascript" charset="utf-8">   
+$( function(){
+    var i;
+   // connect socket
+     var  socket = io.connect('http://localhost:5000');
+         console.log('Initialized socket connection...');
+
+    
+
+
+ }); // end document.ready
+
+
+
+</script>
+
+</body>
+</html>

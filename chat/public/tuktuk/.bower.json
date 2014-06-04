@@ -1,0 +1,25 @@
+{
+  "name": "Tuktuk",
+  "description": "Simple (but powerful) RWD Framework",
+  "version": "0.7.6",
+  "homepage": "http://tuktuk.tapquo.com",
+  "author": {
+    "name": "Javi Jimenez",
+    "site": "https://twitter.com/soyjavi"
+  },
+  "license": [
+    {
+      "type": "GPLv3"
+    }
+  ],
+  "_release": "0.7.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.7.6",
+    "commit": "397a02fa5946a89b7d26c4321f9c1b28210f6e21"
+  },
+  "_source": "git://github.com/soyjavi/package-tuktuk.git",
+  "_target": "~0.7.6",
+  "_originalSource": "tuktuk",
+  "_direct": true
+}

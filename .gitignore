@@ -1,0 +1,11 @@
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components
+.DS_STORE
+ai
+bak
+.editorconfig
+gumby
+public/vendor

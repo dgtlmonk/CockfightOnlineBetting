@@ -1,0 +1,7 @@
+{
+    "build":{
+        "gumbyPath":"public/gumby",
+        "modules":["retina","toggleswitch"],
+        "buildSourceMap":true
+    }
+}

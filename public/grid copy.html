@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<title>Sabong Online</title>
+
+<link rel="stylesheet" href="gumby/css/gumby.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="gumby/css/style.css" type="text/css" media="screen" charset="utf-8">
+
+<meta name="viewport" content="width:device-width, initial-scale=1.0, maximum-scale=1">
+
+<script src='gumby/js/libs/modernizr-2.6.2.min.js'></script>
+
+<style type="text/css" media="screen">
+#videoStream {
+    min-height:350px;
+    background-color:#ccc;
+}
+
+body {
+    margin-left:auto;
+    margin-right:auto;
+    border:0;
+    margin:0;
+}
+
+.wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.container {
+    width:1140px;
+}
+
+section.row {
+    /* border: 1px solid !important;
+ */
+  }
+
+.wrapper.shaded {
+    background-color: #E9E9E9 !important;
+}
+
+tr.balanceInfo > th, div.balanceInfo {
+    background-color:#e1e2e2;
+    color:#000;
+}
+
+div.balanceInfo_Amount {
+    color:#6d7072;
+    font-size:1.6em;
+   padding-top:.7em;
+}
+
+</style>
+
+<body>
+
+<div class='wrapper nopad'>
+    <div class='wrapper navbar'>
+        <div class='navbar row'>
+            <ul class='ten columns'>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Cashier</a></li>
+                <li><a href="#">Bet History</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+               
+        </div>
+    </div>
+    <div class='container' style='text-align:center; margin-left:auto;margin-right:auto;'>
+        <div class='row'>
+            <section id='chat' class='two columns'>
+                    CHAT AREA
+            </section>
+            
+            <section class='seven columns videoStream' style='border: 1px solid;'>
+                <div class='row'>
+                   STREAMING AREA 
+                </div>
+            </section>
+            <section class='three columns betTable'>
+                <div class='row'>
+                    <table class='betTable'>
+                       <thead class=''>
+                          <tr class='balanceInfo'>   
+                            <th>
+                                <div style='float:left; line-height:1em;' style='text-align:center'>
+                                    REMAINING BALANCE
+                                </div>
+                                <div class='balanceInfo_Amount'>
+                                    $2000.00
+                                </div>
+                            </th>
+                            
+                          </tr>
+                        <tr>
+                            <th>
+                                <div style='line-height:1em; float:left;'>
+                                    TOTAL BETS     
+                                </div>
+                                <div class='balanceInfo_Amount'>$4000.00</div>
+                            </th>
+                          </tr>
+                       </thead>
+                        <tbody>
+                           <tr>
+                             <td class='field'>
+                                 <div class='row'>
+                                    <div style='float:left; padding:6px;font-size:14px;'>
+                                       Bet Amount
+                                    </div>
+                                                              
+                                    <div class='picker'> 
+                                         <select class=''>
+                                             <option value='100'>100</option> 
+                                             <option value='200'>200</option> 
+                                            <option value='300'>300</option> 
+                                            <option value='400'>400</option> 
+                                            <option value='500'>500</option> 
+                                            <option value='600'>600</option> 
+                                            <option value='700'>700</option> 
+                                            <option value='800'>800</option> 
+                                            <option value='900'>900</option> 
+                                            <option value='1000'>1000</option> 
+                                            <option value='1500'>1500</option> 
+                                            <option value='2000'>2000</option> 
+                                            <option value='2500'>2500</option> 
+                                            <option value='3000'>3000</option> 
+                                        </select>      
+                                    </div>
+                                </div>
+                             </td>
+                           </tr>
+
+                           <tr class=''>
+                               <td style='text-align:center;font-size:14px'>
+                                  UNMATCHED BETS
+                               </td>
+                                                 
+                            </tr>
+                           
+                            <tr class='betTable' style='border:1px solid;'> 
+                                <div class='row'>
+                                  <table class='betTable' style=''>
+                                   <tr>
+                                        <td class=''>-</td>
+                                        <td class=''>MERON(L) </td>
+                                        <td class=''>ODDS </td>
+                                        <td class=''>WALA(D) </td>
+                                        <td class=''>-</td>
+                                    </tr>
+                                    <tr class=''>
+                                        <td class=''> <button type='button'>bet</button> </td>
+                                        <td class=''></td>
+                                        <td class=''>10-10</td>
+                                        <td class=''></td>
+                                        <td class=''><button type='button'>bet</button> </td>
+                                         
+                                    </tr>
+                                    
+                                   </table>
+                                 </div>
+                            </tr>
+                            
+                            
+                           
+                        </tbody>
+                        
+
+                       
+                    </table>
+                    
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.1.10.2.min.js"></script>
+<script gumby-touch="js/libs" src="gumby/js/libs/gumby.js"></script>
+<script src="gumby/js/libs/ui/gumby.tabs.js"></script>
+<script src="gumby/js/libs/ui/gumby.navbar.js"></script>
+<script src="gumby/js/libs/gumby.init.js"></script>
+
+<script src="gumby/js/plugins.js"></script>
+<script src="gumby/js/main.js"></script>
+
+
+
+</body>
+</html>

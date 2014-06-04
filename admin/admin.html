@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/tuktuk/tuktuk.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="/static/tuktuk/tuktuk.theme.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="/static/tuktuk/tuktuk.icons.css" type="text/css" charset="utf-8">
+    <style>
+body  {
+    font-family:Arial;
+}
+</style>
+    </head>
+<body>
+
+<header class="bck dark padding color white">
+   <div class="row text center">
+       <h1>Admin Panel test</h1>
+   </div>
+</header>
+
+
+<div class='row'>
+    <div class="offset_4 column_5 padding">
+  
+    <header id=''>
+        <h3> Editable Server data  </h3>
+    </header>
+    
+    <section class='form margin-top'>
+        <label class='text thin'><h5>Room Name</h5></label>
+        <input type='text' value='text' id='roomName'/>
+        <label class='text thin'><h5>Active Users</h5></label>
+        <input type='text' value='100' id='activeUsers'/>
+        <label class='text thin'><h5>Pot</h5></label>
+        <input type='text' value='5000' id='potAmount'/>
+        <label class='text thin'><h5>Description</h5></label>
+        <textarea id='description'></textarea>
+
+
+    </section>
+        <a id='btnUpdate' href="#" class="button alert anchor margin-top">Connecting... </a>
+        <span class="text bold align center" id='status'> ... </span>
+            
+   
+       
+    </div>
+</div>
+
+
+ <script src='/socket.io/socket.io.js'></script>
+ <script src='/static/js/jquery.1.10.2.min.js'></script>
+ <script src='/static/tuktuk/tuktuk.js'></script>
+
+ <script type="text/javascript" charset="utf-8">     
+ $( function(){
+    
+   var i, cacheData = {};
+   var socket = io.connect('http://localhost:5000');
+   
+   socket.on('connect', function(){
+       console.log('#Admin Panel# socket connected');
+       $('#btnUpdate').removeClass('alert').addClass('success');
+       $('#btnUpdate').text('Update');
+       setTimeout(TukTuk.Modal.hide, 1000);
+    })
+
+   socket.on('onServerGlobalData', function(data){
+     for (i in data) {
+          try {
+            $('#' + i).text(data[i]);  
+            $('#' + i).val(data[i]);
+            } catch (e){
+
+            }
+       }
+    });
+       
+   
+   socket.on('onServerDataUpdate', function( data ){
+            console.log('#Notice# Received data update from server')
+       });
+
+
+    $('#btnUpdate').bind('click', function(){
+        console.log('Updating server data ...');
+        cacheData = {
+            "roomName": $('#roomName').val(),
+            "potAmount": $('#potAmount').val(),
+            "description": $('#description').val(),
+            "activeUsers": $('#activeUsers').val()
+        }
+
+        socket.emit('onDataUpdate', cacheData);
+    });
+
+   TukTuk.Modal.loading();
+
+});
+
+ </script>
+</body>
+</html>
+

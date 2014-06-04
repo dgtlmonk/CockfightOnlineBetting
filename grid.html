@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<title>Sabong Online</title>
+
+<link rel="stylesheet" href="/static/vendor/gumby/css/gumby.css" type="text/css" media="screen" charset="utf-8">
+
+<meta name="viewport" content="width:device-width, initial-scale=1.0, maximum-scale=1">
+
+<script src='/static/vendor/gumby/js/libs/modernizr-2.6.2.min.js'></script>
+
+<style type="text/css" media="screen">
+#videoStream {
+    min-height:350px;
+    background-color:#ccc;
+}
+
+body {
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    border:0;
+    margin:0;
+}
+
+.wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.container {
+    width:1140px;
+}
+
+div.container {
+    border:1px solid;
+}
+
+</style>
+
+<body>
+
+<div class='wrapper'>
+    <div class='container'>
+        <div class='row'>
+            <div class='one column'>
+                1
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script src="/static/vendor/jquery.1.10.2.min.js"></script>
+<script gumby-touch="js/libs" src="/static/gumby/js/libs/gumby.js"></script>
+<script src="/static/vendor/gumby/js/libs/ui/gumby.tabs.js"></script>
+<script src="/static/vendor/gumby/js/libs/ui/gumby.navbar.js"></script>
+<script src="/static/vendor/gumby/js/libs/gumby.init.js"></script>
+
+<script src="/static/vendor/gumby/js/plugins.js"></script>
+<script src="/static/vendor/gumby/js/main.js"></script>
+
+
+<script src='/socket.io/socket.io.js'></script>
+  
+
+
+<script type="text/javascript" charset="utf-8">   
+$( function(){
+    var i;
+   // connect socket
+     var  socket = io.connect('http://localhost:5000');
+         console.log('Initialized socket connection...');
+
+    
+
+
+ }); // end document.ready
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "CockFightOnlineBetting",
+  "version": "0.0.0",
+  "authors": [
+    "Joel Pablo <joel.pablo@digitalmonkstudio.com>"
+  ],
+  "description": "A NodeJS+SocketIO client/server proposal for a client.",
+  "main": "main.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "/public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.1.1",
+    "tuktuk": "~0.9.0",
+    "gumby": "~2.6.3"
+  }
+}

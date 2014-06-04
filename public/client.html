@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<title>Main</title>
+
+<link rel="stylesheet" href="gumby/css/gumby.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="gumby/css/style.css" type="text/css" media="screen" charset="utf-8">
+
+<meta name="viewport" content="width:device-width, initial-scale=1.0, maximum-scale=1">
+
+<script src='gumby/js/libs/modernizr-2.6.2.min.js'></script>
+
+<style type="text/css" media="screen">
+#videoStream {
+    min-height:350px;
+    background-color:#ccc;
+}
+
+body {
+    margin-left:auto;
+    margin-right:auto;
+    border:0;
+    margin:0;
+}
+
+.wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.container {
+    width:1140px;
+}
+
+section.row {
+    /* border: 1px solid !important;
+ */
+  }
+
+.wrapper.shaded {
+    background-color: #E9E9E9 !important;
+}
+
+tr.balanceInfo > th, div.balanceInfo {
+    background-color:#e1e2e2;
+    color:#000;
+}
+
+div.balanceInfo_Amount {
+    color:#6d7072;
+    font-size:1.2em;
+    font-weight:900;
+    padding:4px;
+}
+
+div.betsInfo_Amount {
+   /* background-color:#e1e2e2;*/
+   background-color:#70b846;
+   padding:4px;
+   margin-bottom:6px;
+   font-weight:700;
+}
+
+span.betAmount {
+    color:#fff;
+}
+
+#inner-nav ul {
+    text-align: center;
+}
+
+#inner-nav li {
+    text-align:center;
+    display:inline-block;
+    height:50px;
+}
+
+#inner-nav .btn {
+    background: none;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+}
+
+#inner-nav > div {
+    padding-top: 20px;
+}
+
+#inner-nav a {
+    color: #555555;
+    white-space: nowrap;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.wrapper.shaded {
+    background-color: #E9E9E9 !important;
+    background-size: cover;
+}
+
+</style>
+
+<body>
+
+<div class='wrapper nopad'>
+	<div class='wrapper shaded'>
+        <div id='inner-nav' class='row'>
+            <div class='ten columns'>
+            <ul>
+                <li><div class='medium metro rounded btn'><a href="#">Home</a></div></li>
+                <li><div class='medium metro rounded btn'><a href="#">Bet History</a></div></li>
+                <li><div class='medium metro rounded btn'><a href="#">My Account</a></div></li>
+                <li><div class='medium metro rounded btn'><a href="#">Support</a></div></li>
+                <li><div class='medium metro rounded btn'><a href="#">Logout</a></div></li>
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class='container' style='text-align:center; margin-left:auto;margin-right:auto;'>
+        <div class='row'>
+            <section id='chat' class='two columns'>
+                    CHAT AREA
+            </section>
+            
+            <section class='seven columns videoStream' style='border: 1px solid; height:400px;'>
+                <div class='row'>
+                   STREAMING AREA 
+                </div>
+            </section>
+
+            <section class='three columns' style='margin-left:4px;'>
+                <div class='row balanceInfo_Amount' style='padding:4px 6px;'>
+                    <div style='float:left'>Balance: <span style='color:#009900' id='balanceAmount'>0</span></div>
+                </div>
+                
+                <div class='row betsInfo_Amount'>
+                    <div style='float:left; padding:4px 6px;'>Total Bets: <span class='betAmount' id='totalBet'>0</span></div>
+                </div>
+                
+                 <div class='row field' style='margin-bottom:0px;'>
+                        <div style='float:left; padding:6px;font-size:16px;font-weight:900;'>
+                        Bet Amount
+                        </div>
+
+                         <div class='picker'> 
+                             <select class=''>
+                                <option value='100'>100</option> 
+                                <option value='200'>200</option> 
+                                <option value='300'>300</option> 
+                                <option value='400'>400</option> 
+                                <option value='500'>500</option> 
+                                <option value='600'>600</option> 
+                                <option value='700'>700</option> 
+                                <option value='800'>800</option> 
+                                <option value='900'>900</option> 
+                                <option value='1000'>1000</option> 
+                                <option value='1500'>1500</option> 
+                                <option value='2000'>2000</option> 
+                                <option value='2500'>2500</option> 
+                                <option value='3000'>3000</option> 
+                            </select>      
+                        </div>
+               </div>       
+                        
+                <div class='row' style='text-align:center;font-size:16px; font-weight:900;'>
+                  UNMATCHED BETS
+                </div>
+                      
+               <div class='row'>
+                  <table class='betTable' style=''>
+                   <tr>
+                        <td class=''></td>
+                        <td class='' style='color:green;'>MERON(L) </td>
+                        <td class=''>ODDS </td>
+                        <td class='' style='color:red;'>WALA(D) </td>
+                        <td class=''></td>
+                    </tr>
+
+                    <tr class=''>
+                        <td class=''> <button type='button'>Bet</button> </td>
+                        <td class='subTotalBet'><span id='BM_L_10_10'>100</span></td>
+                        <td class=''>10-10</td>
+                        <td class='subTotalBet'><span id='BM_L_10_10'>100</span></td>
+                        <td class=''><button type='button'>Bet</button> </td>                         
+                    </tr> 
+
+                    <tr class=''>
+                        <td class=''> <button type='button'>Bet</button></td>
+                        <td class=''></td>
+                        <td class=''>10-9</td>
+                        <td class=''></td>
+                        <td class=''> <button type='button'>Bet</button></td>                                            
+                    </tr>
+
+					<tr class=''>
+                        <td class=''> <button type='button'>Bet</button></td>
+                        <td class=''></td>
+                        <td class=''>10-8</td>
+                        <td class=''></td>
+                        <td class=''> <button type='button'>Bet</button></td>                                            
+                    </tr>
+                    
+					<tr class=''>
+                        <td class=''> <button type='button'>Bet</button></td>
+                        <td class=''></td>
+                        <td class=''>8-6</td>
+                        <td class=''></td>
+                        <td class=''> <button type='button'>Bet</button></td>                                            
+                    </tr>
+
+					<tr class=''>
+                        <td class=''> <button type='button'>Bet</button></td>
+                        <td class=''></td>
+                        <td class=''>3-2</td>
+                        <td class=''></td>
+                        <td class=''> <button type='button'>Bet</button></td>                                            
+                    </tr>
+
+
+					<tr>
+	                        <td class=''></td>
+	                        <td class='' style='color:green;'>MERON(L) </td>
+	                        <td class=''>ODDS </td>
+	                        <td class='' style='color:red;'>WALA(D) </td>
+	                        <td class=''></td>
+	                    </tr>
+
+	                    <tr class=''>
+	                        <td class=''> <button type='button'>Bet</button> </td>
+	                        <td class=''></td>
+	                        <td class=''>9-10</td>
+	                        <td class=''></td>
+	                        <td class=''><button type='button'>Bet</button> </td>                         
+	                    </tr> 
+
+	                    <tr class=''>
+	                        <td class=''> <button type='button'>Bet</button></td>
+	                        <td class=''></td>
+	                        <td class=''>8-10</td>
+	                        <td class=''></td>
+	                        <td class=''> <button type='button'>Bet</button></td>                                            
+	                    </tr>
+
+						<tr class=''>
+	                        <td class=''> <button type='button'>Bet</button></td>
+	                        <td class=''></td>
+	                        <td class=''>6-8</td>
+	                        <td class=''></td>
+	                        <td class=''> <button type='button'>Bet</button></td>                                            
+	                    </tr>
+
+						<tr class=''>
+	                        <td class=''> <button type='button'>Bet</button></td>
+	                        <td class=''></td>
+	                        <td class=''>2-3</td>
+	                        <td class=''></td>
+	                        <td class=''> <button type='button'>Bet</button></td>                                            
+	                    </tr>
+ 
+                   </table>
+                 </div>
+
+                 <div class='row' id='pendingBets' style='text-align:left'>
+                     <div style='text-align:center; font-weight:900;'>PENDING BETS <span><li class='danger badge' id='pendingBetsBadge'>2</li></span></div>
+                    <div class='row'>
+                        <table class='pendingBetDetails'>
+                            <tr><td><button type='button'>Cancel</button> Ticket:2092 / Bet:100 / Odds:10-10</td></tr>
+                            <tr>
+                              <td>
+                                <button type='button'>Cancel</button> Ticket:2091 / Bet:100 / Odds:10-10
+                              </td>
+                              
+                            </tr>
+                            
+                        </table>
+                        
+                      
+                    </div>
+                    
+
+                 </div>
+            </section>
+        </div>
+    </div>
+
+  <div class='row'>
+ 	<div class='row' id='footer'>
+		FOOTER
+	  </div>
+  </div>
+</div>
+
+<script src="js/jquery.1.10.2.min.js"></script>
+<script gumby-touch="js/libs" src="gumby/js/libs/gumby.js"></script>
+<script src="gumby/js/libs/ui/gumby.tabs.js"></script>
+<script src="gumby/js/libs/ui/gumby.navbar.js"></script>
+<script src="gumby/js/libs/gumby.init.js"></script>
+
+<script src="gumby/js/plugins.js"></script>
+<script src="gumby/js/main.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+
+<script type="text/javascript" charset="utf-8">
+     $(function(){
+      
+       var socket = io.connect('http://localhost');
+    
+        socket.on('connect', function(){
+                
+            });
+
+        socket.on('updateUserData', function( data ){
+                console.log('socket@updateUserData -- ' + data);
+                for (i in data) {
+                   console.log(i + ":" + data[i]);
+                
+                }
+
+                // update user data
+                $('#balanceAmount').html(data.balance);
+
+            });
+
+     });
+</script>
+
+</body>
+</html>

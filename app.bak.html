@@ -1,0 +1,89 @@
+<html>
+  <title>Online Sabong</title>
+   <style type="text/css" media="screen">
+
+    body {
+        font-family:Arial;
+    }
+
+  .alert {
+      color:red;
+  }
+
+  .active {
+      color:green;
+  }
+   </style>
+<body>
+
+<div id='status' class='alert'>Connecting to connect ...</div>    
+<div id='news'>
+      <h1>NEWS</h1>            
+       <span id='newsContent'></span>
+</div>
+
+
+<div>
+      <h1>Global Data</h1>
+      <span id='globalData'></span>
+</div>
+
+<input id='btnConnect' type='button' value='Get some data'/>
+
+<div id='dataDump'>
+    
+</div>
+
+
+<script src="/static/js/jquery.1.10.2.min.js"></script>
+<script src='/socket.io/socket.io.js'></script>
+  
+<script type="text/javascript" charset="utf-8">
+   
+$( function(){
+
+   // connect socket
+     var  socket = io.connect('http://localhost:5000');
+      console.log('Initialized socket connection...');
+
+     // gotNews handler from server after socket.emit('getNews') 
+     socket.on('serverGotNews', function(news){
+        console.log('received news: ' + news);
+        $('#newsContent').text(news); 
+
+    });
+
+     socket.on('serverGotGlobalData', function( data ){
+           $('#globalData').text(data);
+           console.log(data); 
+         });
+
+    socket.on('serverGotSomeData', function( data ){
+        $('#dataDump').text(data);
+        
+        });
+
+
+    $('#btnConnect').bind('click',function(){
+       // socket = io.connect();
+        console.log('getting data from server ...');
+        socket.emit('clientGetSomeData'); // request for data
+    });
+
+
+    socket.on('connect', function(){
+          $('#status').removeClass('alert').addClass('active');  
+          $('#status').text('Connected to server');
+        
+           socket.emit('clientGetNews'); // request data from server
+    });
+
+
+ }); // end document.ready
+
+
+
+</script>
+
+  </body>
+</html>
